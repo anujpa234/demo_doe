@@ -3,6 +3,7 @@ import { Search, ChevronDown, Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const eventDate = "19 - 21 MAY 2026";
 
   return (
     <header className="w-full relative z-50 bg-white shadow-sm">
@@ -17,19 +18,44 @@ const Header: React.FC = () => {
           
           {/* Logos */}
           <div className="flex items-center gap-4 md:gap-8 flex-wrap justify-center lg:justify-start">
-            <div className="h-10 md:h-12 w-32 bg-gray-200 flex items-center justify-center text-xs text-gray-500 rounded">
-              {/* Replace with actual Logo */}
-              <img src="/images/logo_adwp.png" alt="Abu Dhabi Water Power Week" className="h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
-              <span className="p-1">LOGO 1</span>
+            
+            {/* Logo 1 + Dynamic Date */}
+            <div className="flex flex-col items-center md:items-start group">
+              <img 
+                src="/images/logo-1.jpeg" 
+                alt="Abu Dhabi Water Power Week" 
+                className="h-10 md:h-14 object-contain" 
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement!.innerHTML = '<span class="font-bold text-gray-700">ADWP Week</span>';
+                }} 
+              />
+              <span className="text-[10px] md:text-[11px] font-bold text-[#5F8D69] uppercase tracking-widest mt-1 whitespace-nowrap">
+                {eventDate}
+              </span>
             </div>
-            <div className="h-1 border-r border-gray-300 h-8 hidden md:block"></div>
-             <div className="h-10 md:h-12 w-32 bg-gray-200 flex items-center justify-center text-xs text-gray-500 rounded">
-              <img src="/images/logo_doe.png" alt="Department of Energy" className="h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
-              <span className="p-1">LOGO 2</span>
+
+            {/* Separator */}
+            <div className="h-8 w-[1px] bg-gray-300 hidden md:block mx-2"></div>
+
+             {/* Logo 2 */}
+             <div className="h-10 md:h-14 flex items-center">
+              <img 
+                src="/images/logo-2.jpeg" 
+                alt="Department of Energy" 
+                className="h-full object-contain" 
+                onError={(e) => e.currentTarget.style.display = 'none'}
+              />
             </div>
-             <div className="h-10 md:h-12 w-20 bg-gray-200 flex items-center justify-center text-xs text-gray-500 rounded">
-              <img src="/images/logo_adq.png" alt="ADQ" className="h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
-              <span className="p-1">LOGO 3</span>
+
+             {/* Logo 3 */}
+             <div className="h-8 md:h-12 flex items-center">
+              <img 
+                src="/images/logo-3.jpeg" 
+                alt="ADQ" 
+                className="h-full object-contain" 
+                onError={(e) => e.currentTarget.style.display = 'none'}
+              />
             </div>
           </div>
 
